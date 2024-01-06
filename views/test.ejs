@@ -80,36 +80,6 @@
             font-size: 17px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            outline: none;
-            color: #fff;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 9px #999;
-        }
-
-        .button:hover { background-color: #3e8e41 }
-
-        .button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-
-        .button-danger {
-            background-color: #f44336;
-        }
-
-        .button-danger:hover { background-color: #d73833 }
-
         footer {
             padding: 20px;
             margin-top: 20px;
@@ -125,6 +95,13 @@
             <div id="branding">
                 <h1><span class="highlight">Fitness</span> Center</h1>
             </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="profile.html">Profile</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -132,21 +109,16 @@
         <section class="access-list">
             <h2>Member Profile</h2>
             <h3>John Doe</h3>
-            <p>Membership Type: <strong>Basic</strong></p>
-            <p>Price: <strong>£25</strong></p>
+            <p>Membership Number: 12345ABC</p>
             <h3>Access List</h3>
-            <p><strong>Sauna:</strong> No Access </p>
-            <p><strong>Pool:</strong> No Access</p>
-            <p><strong>Personal Trainer Sessions:</strong> 1 per month</p>
-
-            <!-- Buttons for Upgrade and Delete Account -->
-            <button class="button">Upgrade Membership</button>
-            <button class="button button-danger">Delete Account</button>
+            <p><strong>Sauna:</strong> Unlimited Access</p>
+            <p><strong>Pool:</strong> Weekdays - 6 AM to 9 PM</p>
+            <p><strong>Personal Trainer Sessions:</strong> 4 per month</p>
         </section>
     </div>
 
     <footer>
-        <p>Contact us at ValeryGym@fitnesscenter.com</p>
+        <p>Contact us at contact@fitnesscenter.com</p>
     </footer>
 </body>
 </html>

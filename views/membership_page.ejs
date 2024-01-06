@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>membership</title>
+    <title>Gym Membership Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .membership-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .membership-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+    <script>
+        function selectMembership(membershipType) {
+            // You can add more functionality here
+            alert('You selected: ' + membershipType);
+        }
+    </script>
 </head>
 <body>
-    choose membership
+    <header>
+        <h1>Your Gym Name</h1>
+    </header>
+
+    <main>
+        <h2>Select Your Membership Plan</h2>
+        <button class="membership-button" onclick="selectMembership('Basic Plan')">Basic Plan</button>
+        <button class="membership-button" onclick="selectMembership('Premium Plan')">Premium Plan</button>
+        <button class="membership-button" onclick="selectMembership('Ultimate Plan')">Ultimate Plan</button>
+        <button class="membership-button" onclick="selectMembership('Student Plan')">Student Plan</button>
+    </main>
+
+    <footer>
+        <p>Contact us: contact@yourgym.com</p>
+    </footer>
 </body>
 </html>

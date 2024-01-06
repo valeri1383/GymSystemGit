@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const url = 'mongodb+srv://valeri1383:valyo1383@cluster0.luc5cdw.mongodb.net/GymDB?retryWrites=true&w=majority';
+const morgan = require('morgan')
 
 const app = express();
 
@@ -16,6 +17,7 @@ con.on('open', function(){
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
+app.use(morgan('dev'))
 
 
 
