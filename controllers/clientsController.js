@@ -93,6 +93,42 @@ exports.find_client_by_id = async (req,res)=>{
     }
  }
 
+ ///////
+ exports.client_basic_update = async (req,res)=>{
+    try{
+        const {id} = req.params;
+        const client_update = await Client.findByIdAndUpdate(id, { $set: { membership: 'basic' } });
+        const updated_client = await Client.findById(id)
+        res.json(updated_client);
+    }catch(err){
+        res.send('Error' + err);
+    }
+ }
+
+ exports.client_standart_update = async (req,res)=>{
+    try{
+        const {id} = req.params;
+        const client_update = await Client.findByIdAndUpdate(id, { $set: { membership: 'standart' } });
+        const updated_client = await Client.findById(id)
+        res.json(updated_client);
+    }catch(err){
+        res.send('Error' + err);
+    }
+ }
+
+ exports.client_premium_update = async (req,res)=>{
+    try{
+        const {id} = req.params;
+        const client_update = await Client.findByIdAndUpdate(id, { $set: { membership: 'premium' } });
+        const updated_client = await Client.findById(id)
+        res.json(updated_client);
+    }catch(err){
+        res.send('Error' + err);
+    }
+ }
+
+////////
+
  exports.client_signup = async (req,res)=>{
     try{
         const clientLogin = await Client.findOne({email:req.body.email});
@@ -108,7 +144,7 @@ exports.find_client_by_id = async (req,res)=>{
                 }else if(membership_type === "premium"){
                     res.render('premium_client',{clientLogin});          
                }else{
-                res.render("membership_page")
+                res.render("membership_page",{clientLogin})
                 }
         }else{
             res.render('login_client_err');

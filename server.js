@@ -30,6 +30,14 @@ app.use('/', clientRouter);
 const membershipList = require('./routes/client_home');
 app.use('/', membershipList);
 
+
 app.listen(3001, (req,res) =>{
     console.log('Server Started')
 });
+
+
+
+
+
+
+

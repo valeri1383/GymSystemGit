@@ -47,28 +47,48 @@
             padding: 1em 0;
         }
     </style>
+    
     <script>
         function selectMembership(membershipType) {
-            // You can add more functionality here
             alert('You selected: ' + membershipType);
         }
     </script>
+
+
+<script>
+    function updateMembership(element) {
+        var membershipType = element.getAttribute('data-membership');
+        
+        axios.post('/updateMembership', {
+            membership: membershipType
+        })
+        .then(function (response) {
+            console.log(response);
+            // Handle success - maybe update the UI or redirect
+        })
+        .catch(function (error) {
+            console.log(error);
+            // Handle error
+        });
+    }
+</script>
+
 </head>
 <body>
     <header>
-        <h1>Your Gym Name</h1>
+        <h1>Hello <%=clientLogin.name%></h1>
     </header>
 
     <main>
+
         <h2>Select Your Membership Plan</h2>
-        <button class="membership-button" onclick="selectMembership('Basic Plan')">Basic Plan</button>
-        <button class="membership-button" onclick="selectMembership('Premium Plan')">Premium Plan</button>
-        <button class="membership-button" onclick="selectMembership('Ultimate Plan')">Ultimate Plan</button>
-        <button class="membership-button" onclick="selectMembership('Student Plan')">Student Plan</button>
+        <button class="membership-button" onclick="selectMembership('Basic Plan')">Basic Plan £25</button>
+        <button class="membership-button" onclick="selectMembership('Standart Plan')">Premium Plan £35</button>
+        <button class="membership-button" onclick="selectMembership('Premium Plan')">Ultimate Plan £45</button>
     </main>
 
     <footer>
-        <p>Contact us: contact@yourgym.com</p>
+        <p>Contact us: ValeryGym@fitnesscenter.com</p>
     </footer>
 </body>
 </html>
