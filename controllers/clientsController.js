@@ -47,7 +47,7 @@ exports.create_client = async (req,res)=>{
             res.render("index_error");
         }else{
             const record = await client_model.save();
-            res.send({message:'the new client has been saved'}); 
+            res.render("client_signup")
             }
         
     }catch(err){
