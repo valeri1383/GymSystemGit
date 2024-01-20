@@ -31,6 +31,14 @@ router.delete('/api/client/delete/:id', controller.client_delete);
 router.post("/client_signup", controller.client_signup);
 
 
+///////
+router.get("/api/update_basic_client", controller.update_client_basic)
+
+router.get("/api/update_standard_client", controller.update_client_standard)
+
+router.get("/api/update_premium_client", controller.update_client_premium)
+
+
 
 
 

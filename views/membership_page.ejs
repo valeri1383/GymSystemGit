@@ -82,9 +82,15 @@
     <main>
 
         <h2>Select Your Membership Plan</h2>
-        <button class="membership-button" onclick="selectMembership('Basic Plan')" ><a href="/basic_client">Basic Plan £25</a></button>
-        <button class="membership-button" onclick="selectMembership('Standart Plan')"><a href="/standart">Standard Plan £35</a></button>
-        <button class="membership-button" onclick="selectMembership('Premium Plan')"><a href="/premium">Premium Plan £45</a></button>
+        <!-- <button class="membership-button" onclick="selectMembership('Basic Plan')" ><a href="/basic_client">Basic Plan £25</a></button> -->
+        <button class="membership-button" onclick="selectMembership('Basic Plan')" ><a href="/api/update_basic_client?id=<%=clientLogin._id%>">Basic Plan £25</a></button>
+
+        <!-- <button class="membership-button" onclick="selectMembership('Standart Plan')"><a href="/standart">Standard Plan £35</a></button> -->
+        <button class="membership-button" onclick="selectMembership('Standard Plan')" ><a href="/api/update_standard_client?id=<%=clientLogin._id%>">Standard Plan £35</a></button>
+
+        <!-- <button class="membership-button" onclick="selectMembership('Premium Plan')"><a href="/premium">Premium Plan £45</a></button> -->
+        <button class="membership-button" onclick="selectMembership('Premium Plan')" ><a href="/api/update_premium_client?id=<%=clientLogin._id%>">Premium Plan £45</a></button>
+
     </main>
 
     <footer>

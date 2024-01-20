@@ -1,4 +1,5 @@
 
+const { default: axios } = require('axios');
 const Client = require('../models/client_model')
 const bcrypt = require('bcrypt');
 
@@ -59,7 +60,7 @@ exports.create_client = async (req,res)=>{
 
 exports.find_client_by_id = async (req,res)=>{
     try{
-         const id_client = await Client.findById(req.params.id);
+         const id_client = await Client.findById(req.query.id);
          res.json(id_client);
  
     }catch(err){
@@ -82,16 +83,20 @@ exports.find_client_by_id = async (req,res)=>{
     }
  }
 
- exports.client_update = async (req,res)=>{
-    try{
-        const {id} = req.params;
-        const client_update = await Client.findByIdAndUpdate(id, req.body);
-        const updated_client = await Client.findById(id)
+ exports.client_update = async (req, res) => {
+    try {
+        //const { id } = req.query.id;
+        // Update the client document
+        await Client.findByIdAndUpdate(req.query.id, { membership: "BASIC" });
+
+        // Retrieve the updated document
+        const updated_client = await Client.findById(id);
         res.json(updated_client);
-    }catch(err){
-        res.send('Error' + err);
+        console.log(updated_client)
+    } catch (err) {
+        res.send('Error: ' + err);
     }
- }
+};
 
  ///////
  exports.client_basic_update = async (req,res)=>{
@@ -155,3 +160,34 @@ exports.find_client_by_id = async (req,res)=>{
     }
 }
 
+
+
+exports.update_client_basic = (req, res) => {
+    axios.get("http://localhost:3001/api/client/findID/:id", { params: { id: req.query.id } })
+    .then(function(clientData){
+        res.render("basic_client", { clientData: clientData.data });
+    })
+    .catch(error => {
+        res.send(error);
+    });
+}
+
+exports.update_client_standard = (req, res) => {
+    axios.get("http://localhost:3001/api/client/findID/:id", { params: { id: req.query.id } })
+    .then(function(clientData){
+        res.render("standard_client", { clientData: clientData.data });
+    })
+    .catch(error => {
+        res.send(error);
+    });
+}
+
+exports.update_client_premium = (req, res) => {
+    axios.get("http://localhost:3001/api/client/findID/:id", { params: { id: req.query.id } })
+    .then(function(clientData){
+        res.render("premium_client", { clientData: clientData.data });
+    })
+    .catch(error => {
+        res.send(error);
+    });
+}
